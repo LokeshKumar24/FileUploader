@@ -1,0 +1,81 @@
+<mvc:View
+    controllerName="fileuploder.controller.BaseView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+	xmlns:ui="sap.ui.unified" 
+	xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content >
+					  <IconTabBar
+		
+		class="sapUiResponsiveContentPadding">
+		<items>
+           <IconTabFilter text="Files Data" icon="sap-icon://table-view" key="Files">
+           <table:Table rows="{fileNameModel>/request}" id="idListItem" customFilter="true"
+           filter="dateFilter" enableCellFilter="true" 	selectionMode="Single" selectionBehavior="RowOnly"
+            width="50rem">
+            <table:columns>
+				<table:Column width="10em" >
+					<Label text="EmployeeId"></Label>
+                    <table:template>
+                        <Text text="{fileNameModel>Eid}"></Text>	
+                    </table:template>
+				</table:Column>
+				<table:Column filterProperty="fileNameModel>Employeename">
+					<Label text="EmployeeName"></Label>
+                     <table:template>               
+						<Text text="{fileNameModel>Employeename}"></Text>	
+                    </table:template>
+				</table:Column>
+				<table:Column filterProperty="fileNameModel>Filename">
+					<Label text="FileName"></Label>
+                     <table:template>
+                      
+						<Text text="{fileNameModel>Filename}"></Text>
+						
+                    </table:template>
+				</table:Column>
+				<table:Column filterType="{type: 'sap.ui.model.type.Date' }"
+                 filterProperty="fileNameModel>Creationdate" 
+                >
+					<Label text="Date"></Label>
+                     <table:template>
+						<Text text="{path:'fileNameModel>Creationdate'}"></Text>
+                    </table:template>
+				</table:Column>
+				
+				<table:Column>
+					<Label text="Files to Download"></Label>
+                     <table:template>
+                        <Button text="Download" press="downloadFile"></Button>				
+                    </table:template>
+				</table:Column>
+			</table:columns>
+           </table:Table>
+	</IconTabFilter>
+            
+			<IconTabFilter  icon="sap-icon://upload" text="Time Sheet Upload" key="Time Sheet Upload">
+         <core:Fragment fragmentName="fileuploder.view.TimeSheet" type="XML"/>
+           
+			</IconTabFilter>
+
+			<IconTabFilter text="Files" icon="sap-icon://attachment" key="Files">
+
+             <core:Fragment fragmentName="fileuploder.view.Files" type="XML"/>
+				
+			</IconTabFilter>
+			
+		</items>
+	</IconTabBar>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

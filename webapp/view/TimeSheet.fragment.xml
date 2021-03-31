@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:sf="sap.ui.layout.form"  xmlns:ui="sap.ui.unified" 
+xmlns:core="sap.ui.core">
+<sf:SimpleForm editable="true">
+				<Label text="EmployeeId"></Label>
+				<Input id="InputIdTS" placeholder="Enter Emp Id" ></Input>
+				<Label text="EmployeeName"></Label>
+				<Input id="InputNameTS" type="Text" placeholder="Enter Emp Name " ></Input>
+                 <Label text=""></Label>
+                 
+            <Label text="FileName"></Label>
+				<Input id="TSFileName" type="Text" placeholder="Enter File Name" ></Input>
+                <Label text=""></Label>
+                <Label text="File Uploader"></Label>
+				<ui:FileUploader id="fileUploaderTS" />
+				<Button text="Upload" type="Accept" press="onUploaderTS"/>
+				
+			</sf:SimpleForm>
+</core:FragmentDefinition>
